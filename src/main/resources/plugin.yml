@@ -1,0 +1,15 @@
+name: marcerBackup
+version: 0.0.1-Alpha
+author: marcermarc
+main: de.marcermarc.backup.Main
+commands:
+  marcerBackup:
+    description: Zum Einstellen des Plugins
+    usage: /marcerBackup
+    permission: marcerBackup.marcerBackup
+    permission-message: You don't have permission to use this command
+  mB:
+    description: Zum Einstellen des Plugins
+    usage: /mB
+    permission: marcerBackup.marcerBackup
+    permission-message: You don't have permission to use this command
