@@ -9,6 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class Main extends JavaPlugin {
 
     private PluginController controller = new PluginController();
+    private int taskId;
 
     @Override
     public void onEnable() {
@@ -19,6 +20,8 @@ public class Main extends JavaPlugin {
         registerEvents(pM);
 
         controller.setConfig(new ConfigController(controller));
+
+        startSchedules();
     }
 
     private void registerEvents(PluginManager in_PM) {
@@ -27,8 +30,12 @@ public class Main extends JavaPlugin {
         this.getCommand("mB").setExecutor(c);
     }
 
+    private void startSchedules() {
+        taskId = this.getServer().getScheduler().scheduleSyncRepeatingTask(this, controller.getStartBackup(), 120 * controller.getConfig().getIntervalInMin(), 120 * controller.getConfig().getIntervalInMin());
+    }
+
     @Override
     public void onDisable() {
-
+        this.getServer().getScheduler().cancelTask(taskId);
     }
 }
