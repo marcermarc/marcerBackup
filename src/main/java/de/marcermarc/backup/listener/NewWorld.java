@@ -1,3 +1,4 @@
+/*
 package de.marcermarc.backup.listener;
 
 import de.marcermarc.backup.controller.PluginController;
@@ -18,3 +19,4 @@ public class NewWorld implements Listener {
         controller.getBackup().addWorldFolder(worldInit.getWorld().getWorldFolder().getPath());
     }
 }
+*/

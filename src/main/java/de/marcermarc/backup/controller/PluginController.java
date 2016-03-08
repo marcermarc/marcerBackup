@@ -5,9 +5,14 @@ import de.marcermarc.backup.tasks.StartBackup;
 
 public class PluginController {
     private ConfigController config;
-    private BackupController backup = new BackupController(this);
+    private BackupController backup;
     private Main main;
     private StartBackup startBackup = new StartBackup(this);
+
+    public PluginController(Main main) {
+        this.main = main;
+        this.backup = new BackupController(this);
+    }
 
     public ConfigController getConfig() {
         return config;

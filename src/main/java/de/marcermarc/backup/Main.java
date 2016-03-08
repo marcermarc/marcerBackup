@@ -8,12 +8,12 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
 
-    private PluginController controller = new PluginController();
+    private PluginController controller;
     private int taskId;
 
     @Override
     public void onEnable() {
-        controller.setMain(this);
+        controller = new PluginController(this);
 
         PluginManager pM = getServer().getPluginManager();
 
