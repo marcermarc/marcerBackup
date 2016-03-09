@@ -3,10 +3,7 @@ package de.marcermarc.backup.tasks;
 import de.marcermarc.backup.controller.BackupController;
 import de.marcermarc.backup.controller.PluginController;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -31,8 +28,12 @@ public class AsyncBackup implements Runnable {
         backupController.startBackup();
 
         try {
+            File backupFolder = new File("./backup/");
+            if (!backupFolder.exists()) {
+                backupFolder.mkdir();
+            }
 
-            ZipOutputStream zipOutputStream = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream(".\\backup\\" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss")) + ".zip")));
+            ZipOutputStream zipOutputStream = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream("./backup/" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss")) + ".zip")));
 
             zipOutputStream.setMethod(ZipOutputStream.DEFLATED);
             zipOutputStream.setLevel(9);
