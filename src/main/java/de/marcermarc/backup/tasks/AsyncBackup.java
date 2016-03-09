@@ -38,13 +38,13 @@ public class AsyncBackup implements Runnable {
             zipOutputStream.setMethod(ZipOutputStream.DEFLATED);
             zipOutputStream.setLevel(9);
 
-            ArrayList<String> folders = backupController.getWorldFolder();
+            ArrayList<File> folders = backupController.getWorldFolder();
 
             byte data[] = new byte[BUFFER];
 
-            for (String folder : folders) {
+            for (File folder : folders) {
 
-                zipOutputStream.putNextEntry(new ZipEntry(folder));
+                zipOutputStream.putNextEntry(new ZipEntry(folder.getPath()));
 
                 BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream(folder), BUFFER);
 

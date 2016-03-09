@@ -2,6 +2,7 @@ package de.marcermarc.backup.controller;
 
 import org.bukkit.World;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
@@ -12,9 +13,9 @@ public class BackupController {
         this.controller = controller;
     }
 
-    public synchronized ArrayList<String> getWorldFolder() {
-        ArrayList<String> ret = new ArrayList<>();
-        ret.addAll(controller.getMain().getServer().getWorlds().stream().map(world -> world.getWorldFolder().getPath()).collect(Collectors.toList()));
+    public synchronized ArrayList<File> getWorldFolder() {
+        ArrayList<File> ret = new ArrayList<>();
+        ret.addAll(controller.getMain().getServer().getWorlds().stream().map(world -> world.getWorldFolder()).collect(Collectors.toList()));
         return ret;
     }
 
