@@ -7,11 +7,12 @@ public class PluginController {
     private ConfigController config;
     private BackupController backup;
     private Main main;
-    private StartBackup startBackup = new StartBackup(this);
+    private StartBackup startBackup;
 
     public PluginController(Main main) {
         this.main = main;
         this.backup = new BackupController(this);
+        this.startBackup = new StartBackup(this);
     }
 
     public ConfigController getConfig() {

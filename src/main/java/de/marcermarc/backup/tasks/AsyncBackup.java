@@ -32,9 +32,10 @@ public class AsyncBackup implements Runnable {
 
         try {
 
-            ZipOutputStream zipOutputStream = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream("./backup/" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss")) + ".zip")));
+            ZipOutputStream zipOutputStream = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream(".\\backup\\" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss")) + ".zip")));
 
             zipOutputStream.setMethod(ZipOutputStream.DEFLATED);
+            zipOutputStream.setLevel(9);
 
             ArrayList<String> folders = backupController.getWorldFolder();
 
@@ -52,6 +53,8 @@ public class AsyncBackup implements Runnable {
                 }
 
                 bufferedInputStream.close();
+
+                zipOutputStream.closeEntry();
             }
 
             zipOutputStream.close();

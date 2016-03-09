@@ -6,7 +6,7 @@
 
     <groupId>de.marcermarc.backup</groupId>
     <artifactId>marcerBackup</artifactId>
-    <version>0.0.1-ALPHA</version>
+    <version>0.0.5-ALPHA</version>
     <build>
         <plugins>
             <plugin>

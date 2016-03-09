@@ -18,8 +18,8 @@ public class ConfigController {
     private void setDefaultConfig() {
 
         controller.getMain().getConfig().addDefault("intervalInMin", 60);
-        controller.getMain().getConfig().addDefault("startMessage", "StartBackup startet");
-        controller.getMain().getConfig().addDefault("endMessage", "StartBackup startet");
+        controller.getMain().getConfig().addDefault("startMessage", "Backup startet");
+        controller.getMain().getConfig().addDefault("endMessage", "Backup finished");
 
         controller.getMain().getConfig().options().copyDefaults(true);
         controller.getMain().saveDefaultConfig();

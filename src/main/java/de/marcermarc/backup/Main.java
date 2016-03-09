@@ -31,7 +31,7 @@ public class Main extends JavaPlugin {
     }
 
     private void startSchedules() {
-        taskId = this.getServer().getScheduler().scheduleSyncRepeatingTask(this, controller.getStartBackup(), 120 * controller.getConfig().getIntervalInMin(), 120 * controller.getConfig().getIntervalInMin());
+        taskId = this.getServer().getScheduler().scheduleSyncRepeatingTask(this, controller.getStartBackup(), 1200L, 1200L * (long) controller.getConfig().getIntervalInMin());// * controller.getConfig().getIntervalInMin());
     }
 
     @Override

@@ -1,0 +1,3 @@
+intervalInMin: 60
+startMessage: 'Backup startet'
+endMessage: 'Backup finished'

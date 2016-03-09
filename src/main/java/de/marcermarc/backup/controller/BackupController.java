@@ -32,7 +32,7 @@ public class BackupController {
 
         for (World world : controller.getMain().getServer().getWorlds()) {
             world.setAutoSave(false);
-            world.save();
+            //world.save();
         }
 
         controller.getMain().getServer().broadcastMessage(controller.getConfig().getStartMessage());
